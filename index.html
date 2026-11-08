@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <meta name="description" content="A free, local-first YouTube planning and publishing workspace.">
+  <title>TubeFlow — YouTube Creator Studio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="TubeFlow home"><span class="brand-mark">▶</span><span>Tube<span class="brand-accent">Flow</span></span></a>
+    <div class="topbar-right"><span class="free-badge"><span></span> Free · No API key</span><button id="newProjectTop" class="button button-quiet" type="button">＋ New video</button></div>
+  </header>
+  <main class="layout">
+    <aside class="sidebar" aria-label="Main navigation">
+      <p class="sidebar-label">WORKSPACE</p>
+      <button class="nav-item active" data-view="studio"><span>✦</span> Video studio</button>
+      <button class="nav-item" data-view="projects"><span>▤</span> My projects <span id="projectCount" class="nav-count">0</span></button>
+      <div class="sidebar-note"><span class="note-icon">💡</span><strong>Your ideas stay yours.</strong><p>Everything is saved in this browser. No account, subscription, or API key needed.</p></div>
+      <div class="sidebar-bottom">MADE FOR CREATORS<br><span>Plan smarter. Create consistently.</span></div>
+    </aside>
+    <section class="main-content">
+      <section id="studioView">
+        <div class="page-heading"><div><div class="eyebrow">CREATOR WORKSPACE</div><h1>Video studio</h1><p>Turn a rough idea into a ready-to-film YouTube plan.</p></div><div class="heading-pill">⚡ 100% free to use</div></div>
+        <div class="studio-grid">
+          <section class="card brief-card">
+            <div class="card-heading"><div class="step-number">1</div><div><h2>Video brief</h2><p>Tell us what you want to make.</p></div></div>
+            <form id="briefForm">
+              <label for="topic">What's your video about? <span class="required">*</span></label>
+              <textarea id="topic" rows="3" placeholder="e.g. Easy meal prep for busy college students" required maxlength="240"></textarea>
+              <div class="form-row"><div><label for="niche">Your niche</label><input id="niche" placeholder="e.g. Cooking, tech, fitness" maxlength="80"></div><div><label for="audience">Target audience</label><input id="audience" placeholder="e.g. Beginners, students" maxlength="100"></div></div>
+              <div class="form-row"><div><label for="tone">Video tone</label><select id="tone"><option>Friendly</option><option>Energetic</option><option>Educational</option><option>Relaxed</option><option>Professional</option></select></div><div><label for="duration">Video length</label><select id="duration"><option value="short">Short (under 60 sec)</option><option value="5">Around 5 minutes</option><option value="10" selected>Around 10 minutes</option><option value="15">Around 15 minutes</option></select></div></div>
+              <button class="button button-primary generate-button" type="submit"><span>✦</span> Generate my video plan <span>→</span></button>
+              <p class="fine-print">Template-powered generation runs right here in your browser. No AI service or paid API required.</p>
+            </form>
+          </section>
+          <section id="results" class="card results-card empty-state"><div class="empty-illustration">✎</div><h2>Your next video starts here</h2><p>Fill in your brief and generate a script outline, title ideas, description, tags, and thumbnail prompt.</p><div class="feature-list"><span>✓ No sign-up</span><span>✓ Private by default</span><span>✓ Download anytime</span></div></section>
+        </div>
+        <section id="workflow" class="workflow card"><div class="workflow-title"><div><div class="eyebrow">YOUR CREATION CHECKLIST</div><h2>From idea to upload</h2></div><span class="workflow-caption">A simple workflow, all in one place</span></div><div class="workflow-steps"><div><span class="workflow-icon">✦</span><strong>1. Plan</strong><small>Build your video brief</small></div><i></i><div><span class="workflow-icon">▤</span><strong>2. Create</strong><small>Use your outline to film</small></div><i></i><div><span class="workflow-icon">↥</span><strong>3. Publish</strong><small>Upload on YouTube</small></div></div><p class="workflow-disclaimer">TubeFlow prepares your content; you review and publish it yourself. Automatic uploads require YouTube OAuth and are not enabled in this free, keyless demo.</p></section>
+      </section>
+      <section id="projectsView" class="hidden"><div class="page-heading"><div><div class="eyebrow">YOUR LIBRARY</div><h1>My projects</h1><p>Your video plans, saved on this device.</p></div><button id="newProject" class="button button-primary" type="button">＋ New video</button></div><div id="projectList" class="project-list"></div></section>
+      <footer>TubeFlow is an independent planning tool and is not affiliated with YouTube or Google.</footer>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
